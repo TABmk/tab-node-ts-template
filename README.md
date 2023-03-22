@@ -35,8 +35,6 @@ Check `nodemon.json`
 ## Config
 File: `tsconfig.eslint.json`
 
-**outDir**: `./build`
-
 # TypeDoc
 ## `yarn docs` 
 
@@ -48,6 +46,25 @@ File: `tsconfig.eslint.json`
 
 Generate docs with th given config and open link
 
+# Minify
+
+## yarn minify
+
+**Cmd**: `minify ./index.js > ./index.min && mv ./index.min ./index.js`
+
+Minify index.js file, remove comments
+
+TODO: minify all js files
+
+Something like this, maybe:
+
+``` shell
+for file in $(find npm -type f -name '*.js');
+do
+  minify "./$file" > "./$file.min" && mv "./$file.min" "./$file";
+done
+```
+
 # .gitignore
 - node_modules
 - .DS_Store
@@ -56,5 +73,15 @@ Generate docs with th given config and open link
 - docs
 - build
 
+# .npmignore
+- \*
+- !*.d.ts
 # License
 MIT
+
+# Github Actions
+### piblish.yml
+
+Will publish repo to npm when new release is created
+
+`NPM_TOKEN` variable can be set in repo > Settings > Secrets and variables > Actions > New repository secret
