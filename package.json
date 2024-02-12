@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc --project tsconfig.eslint.json",
-    "start": "yarn build && node ./build/index.js",
+    "start": "yarn build && node ./index.js",
     "dev": "nodemon",
     "lint": "eslint",
     "docs": "typedoc --tsconfig tsconfig.eslint.json && open file://$(pwd)/docs/index.html",
